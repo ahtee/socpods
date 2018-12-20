@@ -21,12 +21,12 @@ Ruby, rails gem, bundler, sqlite3/mysql, rake, homebrew
 	-* `bew install sqlite3`
 
 * Configuration
-Clone the repo to your local machine.
-Install mysql with Homebrew (mac) `brew install mysql`.
-After installing the database, run the following command to start the mysql server: `mysql.server start`.
-After cloning the repository, cd into `social` and run `bundle install`.
-After installing packages and dependencies, run `bin/rails server` to start the web server.
-Stop the database with `mysql.server stop`.
+Clone the repo to your local machine.  
+Install mysql with Homebrew (mac) `brew install mysql`.  
+After installing the database, run the following command to start the mysql server: `mysql.server start`.  
+After cloning the repository, cd into `social` and run `bundle install`.  
+After installing packages and dependencies, run `bin/rails server` to start the web server.  
+Stop the database with `mysql.server stop`.  
 
 * Database creation
 	s
