@@ -60,3 +60,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Installs the Bootstrap 4 CSS framework via rubygems.org
+gem 'bootstrap', '~> 4.1', '>= 4.1.3'
+# JQuery required for Bootstrap 4
+gem 'jquery-rails'
