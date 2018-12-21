@@ -1,11 +1,19 @@
-<div class="center jumbotron">
-  <h1>Welcome to the Sample App</h1>
 
-  <h2>
-    This is the home page for the
-    <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
-
-  <%= link_to "Sign up now!", '/signup', class: "btn btn-lg btn-primary" %>
-</div>
+    <div class="center jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Welcome to the Sample App</h1>
+                    <h2>
+                        This is the home page for the
+                        <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+                        sample application.
+                    </h2>
+                    <%= link_to "Sign up now!", '/signup', class: "btn btn-lg btn-primary" %>
+                </div>
+                <div class="col-md-6">
+                    <%= render 'layouts/login_form' %>
+                </div>
+            </div>
+        </div>
+    </div>
