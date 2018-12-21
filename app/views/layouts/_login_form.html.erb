@@ -1,0 +1,71 @@
+<div class="card">
+    <div class="card-body login-max-width">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#login-pane" data-toggle="tab" aria-expanded="false">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#register-pane" data-toggle="tab" aria-expanded="false">Register</a>
+            </li>
+        </ul>
+        <div class="tab-content mt-3">
+            <div class="active login-box tab-pane" id="login-pane" role="tabpanel">
+                <form>
+                    <div class="form-group">
+                        <label for="user-email">Email:</Label>
+                        <input type="email" class="form-control" name="user-email" id="user-email" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-password">Password</Label>
+                        <input type="password" class="form-control" name="user-password" id="user-password" required/>
+                    </div>
+                    <div class="remember-me checkbox">
+                        <div class="form-group ml-4">
+                            <label for="remember">
+                                <input type="checkbox" class="form-check-input" name="remember" id="remember" value="0" />
+                                <span class="pull-left">Remember me</span>
+                                <div class="pull-right forgot-password">
+                                    <a href="/forgot">Forgot your password?</a>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Sign In</Button>
+                </form>
+            </div>
+            <div class="login-box tab-pane" id="register-pane" role="tabpanel">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full name:</label>
+                        <input type="text" class="form-control" name="fullname" id="fullname" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" name="username" id="username" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" name="email" id="email" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email_confirmation">Email confirmation:</label>
+                        <input type="email" class="form-control" name="email" id="email" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" name="password" id="password" required/>
+                    </div>
+                    <div className="terms-and-conditions checkbox mt-3">
+                        <div class="form-group ml-4">
+                            <label for="terms-and-conditions">
+                                <input type="checkbox" class="form-check-input" name="terms-and-conditions" id="terms-and-conditions" value="0" required />
+                                <span>I have read and agree to the <a href="/">Terms and Conditions</a></span>
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Register</Button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
