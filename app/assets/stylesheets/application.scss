@@ -17,10 +17,11 @@
 @import "bootstrap";
 
 .jumbotron-welcome {
-    min-height: 750px;
-    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('gifloop.gif');
+    min-height: 550px;
+    background: linear-gradient( rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0.3) ), url('gifloop.gif');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    border-radius: 0%;
 }
   

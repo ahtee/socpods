@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # get 'sessions/new'
   get '/timeline', to: 'home#timeline'
   get '/signup', to: 'users#new'
-  post '/login', to: 'sessions#create'
+  get '/login', to: 'users#new'
   delete '/logout', to: 'sessions#destroy'
   
   resources :users
