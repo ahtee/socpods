@@ -1,19 +1,23 @@
-
-    <div class="center jumbotron jumbotron-welcome">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <h1 class="display-4 text-white">Welcome to the Sample App</h1>
-                    <h2 class="lead text-white">
-                        This is the home page for the
-                        <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-                        sample application.
-                    </h2>
-                    <%= link_to "Sign up now!", '/signup', class: "btn btn-lg btn-primary" %>
-                </div>
-                <div class="col-md-6">
-                    <%= render 'layouts/login_form' %>
-                </div>
+<div class="center jumbotron jumbotron-welcome">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <h1 class="display-4 text-white">Welcome to the SocialNetwork</h1>
+                <h2 class="lead text-white">
+                    Follow your friends, celebrities, athletes, politicians, artists, bands, and more! A place for free expression.
+                </h2>
+                <%= link_to "Sign up now!", '/signup', class: "btn btn-lg btn-primary" %>
             </div>
         </div>
     </div>
+</div>
+<style type="text/css">
+  .jumbotron-welcome {
+      background: linear-gradient( rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0.0) ), url(<%= randomized_background_image %>);
+      min-height: 550px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-radius: 0%;
+  }
+</style>
