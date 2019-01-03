@@ -69,3 +69,6 @@ gem 'bootstrap', '~> 4.1', '>= 4.1.3'
 # JQuery required for Bootstrap 4
 gem 'jquery-rails'
 gem 'rails-controller-testing'
+# Adding icons from primer
+gem 'octicons'
+gem 'octicons_helper'

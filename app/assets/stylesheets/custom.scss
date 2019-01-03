@@ -16,9 +16,13 @@ $gray-medium-light: #eaeaea;
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+  background-color: #eee;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 5px;
 }
 
-/* sidebar */
+/* sidebar temporary */
 
 aside {
     section.user_info {

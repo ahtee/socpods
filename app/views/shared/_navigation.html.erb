@@ -9,7 +9,7 @@
             <% if logged_in? %>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                Account <b class="caret"></b>
+                Account <%= octicon "chevron-down" %>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li><%= link_to "Profile", current_user, class: 'dropdown-item' %></li>
