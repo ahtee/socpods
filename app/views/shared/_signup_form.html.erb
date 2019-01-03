@@ -2,25 +2,27 @@
     <div class="card-body login-max-width">
 <!--<form> -->
     <%= form_for(@user) do |e| %>
-    <div class="form-group">
+    <div class="form-group input-group-lg">
         <label for="username">Username:</label>
-        <!--<input type="text" class="form-control" name="username" id="username" required/>-->
-        <%= e.text_field :username, class: "form-control" %>
+        <%= e.text_field :username, class: "form-control", placeholder: 'My Nickname' %>
+        <small class="text-muted">
+            Must be unique and between 8-20 characters long.
+        </small>
     </div>
-    <div class="form-group">
+    <div class="form-group input-group-lg">
         <label for="email">Email:</label>
-        <!--<input type="email" class="form-control" name="email" id="email" required/>-->
-        <%= e.email_field :email, class: "form-control" %>
+        <%= e.email_field :email, class: "form-control", placeholder: 'name@example.com' %>
     </div>
-    <div class="form-group">
+    <div class="form-group input-group-lg">
         <label for="password">Password:</label>
-        <!--<input type="password" class="form-control" name="password" id="password" required/>-->
-        <%= e.password_field :password, class: "form-control" %>
+        <%= e.password_field :password, class: "form-control", placeholder: 'Password'%>
+        <small class="text-muted">
+            Enter a secure password by including special characters, numbers, uppercase and lowercase letters.
+        </small>
     </div>
-    <div class="form-group">
-        <label for="password">Password Confirmation</label>
-        <!--<input type="password" class="form-control" name="password" id="password" required/>-->
-        <%= e.password_field :password_confirmation, class: "form-control" %>
+    <div class="form-group input-group-lg">
+        <label for="password">Confirmation</label>
+        <%= e.password_field :password_confirmation, class: "form-control", placeholder: 'Confirm your password' %>
     </div>
     <div className="terms-and-conditions checkbox mt-3">
         <div class="form-group ml-4">
@@ -76,7 +78,15 @@
         </div>
     </div>
     <!--<button type="submit" class="btn btn-primary btn-block">Register</Button>-->
-    <%= e.submit "Create my account", class: "btn btn-primary btn-block" %>
+    <%= e.submit "Create my account", class: "btn btn-primary btn-block btn-lg" %>
+    <div class="row mt-3">
+        <div class="col-md-8 forgot-password text-left">
+            <%= link_to "Forgot Password?", 'users#forgot' %><!-- change this later, also in login_form partial -->
+        </div>
+        <div class="col-md-4 sign-up text-right">
+            <%= link_to "Log in", login_path %>
+        </div>
+    </div>
 <!--</form> -->
     <% end %>
     </div>
