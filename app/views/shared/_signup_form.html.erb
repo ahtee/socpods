@@ -1,12 +1,12 @@
 <div class="card">
     <div class="card-body login-max-width">
 <!--<form> -->
-    <%= form_for(@user) do |e| %>
+    <%= form_for(@user, :novalidate => 'novalidate') do |e| %>
     <div class="form-group input-group-lg">
         <label for="username">Username:</label>
         <%= e.text_field :username, class: "form-control", placeholder: 'My Nickname' %>
         <small class="text-muted">
-            Must be unique and between 8-20 characters long.
+            Must be unique and between 5-20 characters long.
         </small>
     </div>
     <div class="form-group input-group-lg">

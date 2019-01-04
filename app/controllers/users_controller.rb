@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if @user.save
       # Handle a successful save.
       log_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = 'Welcome to the Social Network! We\'re excited you joined us. Learn more.'
       redirect_to @user
     else
       render 'new'
