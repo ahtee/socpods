@@ -14,7 +14,8 @@
   </head>
   <%= render 'shared/navigation' %>
   <div class="root">
+    <%= render 'shared/error_messages' %>
     <%= yield %>
   </div>
-  <%= debug(params) if Rails.env.development? %>
+  <!-- <%= debug(params) if Rails.env.development? %> -->
 </html>

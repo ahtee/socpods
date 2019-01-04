@@ -7,16 +7,13 @@
         <ul class="navbar-nav ml-auto">
             <% if logged_in? %>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                Account
-                </a>
+                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Account</a>
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li><%= link_to "Profile", current_user, class: 'dropdown-item' %></li>
                     <li><%= link_to "Settings", edit_user_path(current_user), class: 'dropdown-item' %></li>
-                    <div class="dropdown-divider"></div>
-                    <li><%= link_to "Log out", logout_path, method: :delete, class: 'dropdown-item' %></li>
                 </ul>
             </li>
+            li><%= link_to "Log out", logout_path, method: :delete, class: 'nav-link' %></li>
         <% else %>
              
         <% end %>

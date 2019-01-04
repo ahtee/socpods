@@ -7,12 +7,17 @@ ruby '2.3.7'
 gem 'rails', '~> 5.2.2'
 # Use bcrypt for database security # Use ActiveModel has_secure_password
 gem 'bcrypt', '3.1.12'
+# Pagination
+gem 'will_paginate', '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Sass font awesome gem
+gem 'font-awesome-sass', '~> 5.6.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -62,7 +67,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Installs the Bootstrap 4 CSS framework via rubygems.org
-gem 'bootstrap', '~> 4.1', '>= 4.1.3'
+gem 'bootstrap', '~> 4.2.1'
 # JQuery required for Bootstrap 4
 gem 'jquery-rails'
 gem 'rails-controller-testing'

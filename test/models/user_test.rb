@@ -34,7 +34,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "email is too long" do
-    @user.email = "a" * 89 + "@example.com"
+    @user.email = "a" * 100 + "@example.com"
     assert_not @user.valid?
   end
 
@@ -76,5 +76,9 @@ class UserTest < ActiveSupport::TestCase
   test "password should have a minimum length" do
     @user.password = @user.password_confirmation = "a" * 7
     assert_not @user.valid?
+  end
+
+  test "authenticated? should return false for a user with nil digest" do
+    assert_not @user.authenticated?('')
   end
 end
