@@ -6,17 +6,17 @@ class UserTest < ActiveSupport::TestCase
   # end
 
   def setup
-    @user = User.new(name: "Sample User", email: "username@example.com", password: "foobar", password_confirmation: "foobar")
+    @user = User.new(username: "sampleuser", email: "username@example.com", password: "foobar", password_confirmation: "foobar")
   end
 
-  test 'should return valid' do
+  test "should return valid" do
     assert @user.valid?
   end
 
-  # test "name should be present" do
-  #   @user.name = "     "
-  #   assert_not @user.valid?
-  # end
+  test "username should be present" do
+    @user.username = "     "
+    assert_not @user.valid?
+  end
 
   test "email should be present" do
     @user.email = "     "
@@ -24,12 +24,17 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "name is too long" do
-    @user.name = "a" * 51
+    @user.username = "a" * 21
+    assert_not @user.valid?
+  end
+
+  test "name is too short" do
+    @user.username = "a" * 4
     assert_not @user.valid?
   end
 
   test "email is too long" do
-    @user.email = "a" * 244 + "@example.com"
+    @user.email = "a" * 100 + "@example.com"
     assert_not @user.valid?
   end
 
@@ -69,7 +74,11 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "password should have a minimum length" do
-    @user.password = @user.password_confirmation = "a" * 5
+    @user.password = @user.password_confirmation = "a" * 7
     assert_not @user.valid?
+  end
+
+  test "authenticated? should return false for a user with nil digest" do
+    assert_not @user.authenticated?('')
   end
 end

@@ -6,7 +6,7 @@
         <label for="username">Username:</label>
         <%= e.text_field :username, class: "form-control", placeholder: 'My Nickname' %>
         <small class="text-muted">
-            Must be unique and between 8-20 characters long.
+            Must be unique and between 5-20 characters long.
         </small>
     </div>
     <div class="form-group input-group-lg">
@@ -24,11 +24,17 @@
         <label for="password">Confirmation</label>
         <%= e.password_field :password_confirmation, class: "form-control", placeholder: 'Confirm your password' %>
     </div>
-    <div className="terms-and-conditions checkbox mt-3">
-        <div class="form-group ml-4">
-            <label for="terms-and-conditions">
-                <input type="checkbox" class="form-check-input" name="terms-and-conditions" id="terms-and-conditions" value="0" required />
-                <span>I have read and agree to the <a href="/" data-toggle="modal" data-target="#termsAndConditions">Terms and Conditions</a></span>
+    <div className="form-group terms-and-conditions checkbox mt-3">
+        <div class="form-check">
+            
+                <input type="checkbox" class="form-check-input" name="terms-and-conditions" id="terms-and-conditions" value="" required />
+                <!--<span>I have read and agree to the <a href="/" data-toggle="modal" data-target="#termsAndConditions">Terms and Conditions</a></span>-->
+                <label class="form-check-label" for="terms-and-conditions">
+                    I agree to the <%= link_to 'Terms and Conditions', root_path, data: { toggle: 'modal', target: '#termsAndConditions' } %>
+                </label>
+                <div class="invalid-feedback">
+                    You must agree before completing signup.
+                </div>
                 <!-- Modal -->
                 <div class="modal fade" id="termsAndConditions" tabindex="-1" role="dialog" aria-labelledby="termsAndConditionsTitle" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
@@ -74,11 +80,10 @@
                         </div>
                     </div>
                 </div>
-            </label>
         </div>
     </div>
     <!--<button type="submit" class="btn btn-primary btn-block">Register</Button>-->
-    <%= e.submit "Create my account", class: "btn btn-primary btn-block btn-lg" %>
+    <%= e.submit "Create my account", class: "btn btn-primary btn-block btn-lg mt-3" %>
     <div class="row mt-3">
         <div class="col-md-8 forgot-password text-left">
             <%= link_to "Forgot Password?", 'users#forgot' %><!-- change this later, also in login_form partial -->
