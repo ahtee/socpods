@@ -3,14 +3,14 @@
     <%= form_for(@user, { class: "needs-validation" }) do |e|%>
     <div class="form-group input-group-lg">
         <label for="username">Username:</label>
-        <%= e.text_field :username, class: "form-control", placeholder: 'My Nickname' %>
+        <%= e.text_field :username, class: "form-control", placeholder: 'mynickname' %>
         <small class="text-muted">
             Must be unique and between 5-20 characters long.
         </small>
     </div>
     <div class="form-group input-group-lg">
         <label for="email">Email:</label>
-        <%= e.email_field :email, class: "form-control", placeholder: 'name@example.com' %>
+        <%= e.email_field :email, class: "form-control", placeholder: 'myname@example.com' %>
     </div>
     <div class="form-group input-group-lg">
         <label for="password">Password:</label>
