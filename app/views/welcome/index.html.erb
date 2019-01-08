@@ -16,6 +16,30 @@
         </div>
     </div>
 </div>
+<section class="introduction mt-5" style="height: 600px;">
+    <div class="container">
+        <h1 class="display-4 text-center">Follow your Interests</h1>
+            <div class="d-flex flex-row justify-content-center">
+                <div class="card text-center justify-content-center border-primary mt-5 w-25 shadow-lg ">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= link_to "JaneSmith", "/" %></h5>
+                        <div class="row justify-content-center">
+                            <%= image_tag("https://www.fujifilmusa.com/products/digital_cameras/x/fujifilm_x20/sample_images/img/index/ff_x20_008.JPG", size: "200x200", :alt => "Jane Smith") %>
+                        </div>
+                        <p class="card-text mt-2">Bike Riding, Hiking, Music</p>
+                        <a href="#" class="btn btn-primary btn-block">Follow</a>
+                    </div>
+            </div>
+    </div>
+</section>
+<div class="hero">
+    <svg class="svg-angle-top" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon points="0,0 100,0 100,100" />
+    </svg>
+    <svg class="svg-angle-bottom" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon points="0,100 100,0 100,100" />
+    </svg>
+</div>
 <style type="text/css">
   .jumbotron-welcome {
       background: linear-gradient( rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0.0) ), url(<%= randomized_background_image %>);
