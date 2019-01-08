@@ -1,7 +1,6 @@
 <div class="card">
     <div class="card-body login-max-width">
-<!--<form> -->
-    <%= form_for(@user) do |e| %>
+    <%= form_for(@user, { class: "needs-validation" }) do |e|%>
     <div class="form-group input-group-lg">
         <label for="username">Username:</label>
         <%= e.text_field :username, class: "form-control", placeholder: 'My Nickname' %>
@@ -22,31 +21,25 @@
     </div>
     <div class="form-group input-group-lg">
         <label for="password">Confirmation</label>
-        <%= e.password_field :password_confirmation, class: "form-control", placeholder: 'Confirm your password' %>
+        <%= e.password_field :password_confirmation, class: "form-control", placeholder: 'Repeat password' %>
     </div>
     <div className="form-group terms-and-conditions checkbox mt-3">
         <div class="form-check">
-            
-                <input type="checkbox" class="form-check-input" name="terms-and-conditions" id="terms-and-conditions" value="" required />
-                <!--<span>I have read and agree to the <a href="/" data-toggle="modal" data-target="#termsAndConditions">Terms and Conditions</a></span>-->
+                <input type="checkbox" class="form-check-input" name="terms-and-privacy" id="terms-and-privacy" value="" required />
                 <label class="form-check-label" for="terms-and-conditions">
-                    I agree to the <%= link_to 'Terms and Conditions', root_path, data: { toggle: 'modal', target: '#termsAndConditions' } %>
+                    I agree to the <%= link_to 'Terms of Service', root_path, data: { toggle: 'modal', target: '#termsAndPrivacy' } %> and <%= link_to 'Privacy Policy', root_path, data: { toggle: 'modal', target: '#termsAndPrivacy' } %>.
                 </label>
-                <div class="invalid-feedback">
-                    You must agree before completing signup.
-                </div>
-                <!-- Modal -->
-                <div class="modal fade" id="termsAndConditions" tabindex="-1" role="dialog" aria-labelledby="termsAndConditionsTitle" aria-hidden="true">
+                <div class="modal fade" id="termsAndPrivacy" tabindex="-1" role="dialog" aria-labelledby="termsAndConditionsTitle" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Sample.com Terms and Conditions</h5>
+                                <h5 class="modal-title" id="exampleModalLongTitle">Sample.com Terms of Service</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                             </div>
                             <div class="modal-body">
-                                <h1>Terms and Conditions ("Terms")</h1>
+                                <h1>Terms of Service ("Terms")</h1>
                                 <p>Last updated: January 02, 2019</p>
                                 <p>Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using the sample.com website (the "Service") operated by sample app ToS ("us", "we", or "our").</p>
                                 <p>Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.</p>
@@ -82,17 +75,36 @@
                 </div>
         </div>
     </div>
-    <!--<button type="submit" class="btn btn-primary btn-block">Register</Button>-->
     <%= e.submit "Create my account", class: "btn btn-primary btn-block btn-lg mt-3" %>
     <div class="row mt-3">
         <div class="col-md-8 forgot-password text-left">
-            <%= link_to "Forgot Password?", 'users#forgot' %><!-- change this later, also in login_form partial -->
+            <!--<%= link_to "Forgot Password?" %>-->
+            <a href="#">Forgot Password?</a><!-- change this later, also in login_form partial -->
         </div>
         <div class="col-md-4 sign-up text-right">
             <%= link_to "Log in", login_path %>
         </div>
     </div>
-<!--</form> -->
     <% end %>
     </div>
 </div>
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>

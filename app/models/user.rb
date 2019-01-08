@@ -2,7 +2,7 @@ class User < ApplicationRecord
     attr_accessor :remember_token
     before_save { email.downcase! } 
     before_save { username.downcase! }
-    validates :name, length: { maximum: 50 } # removed this in initial signup form
+    #validates :name, length: { maximum: 50 } # removed this in initial signup form
     VALID_USERNAME_REGEX = /\A[a-z0-9\-_]+\z/i
     validates :username, presence: true, length: { minimum: 5, maximum: 20 },
               format: { with: VALID_USERNAME_REGEX },
