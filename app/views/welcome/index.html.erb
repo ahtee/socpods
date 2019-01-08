@@ -32,14 +32,26 @@
             </div>
     </div>
 </section>
-<div class="hero">
+<section class="d-flex flex-row align-content-center hero">
     <svg class="svg-angle-top" viewBox="0 0 100 100" preserveAspectRatio="none">
         <polygon points="0,0 100,0 100,100" />
     </svg>
+    <div class="d-flex align-items-center justify-content-center container">
+        <h1 class="display-4 text-center text-white mr-auto">Join Interest Groups</h1>
+        <div class="card text-center border-dark w-25 shadow-lg ">
+            <div class="card-body">
+                <h5 class="card-title"><%= link_to "Killer Queen Cincy", "/" %></h5>
+                <div class="row justify-content-center">
+                    <%= image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR8fReaSvYXgIPp8Igud_aMvOIIdPB31wXarogrdlz0TMos3GJ", size: "200x200", :alt => "Jane Smith") %>
+                </div>
+                <a href="#" class="btn btn-primary btn-block mt-3">Follow</a>
+            </div>
+        </div>
+    </div>
     <svg class="svg-angle-bottom" viewBox="0 0 100 100" preserveAspectRatio="none">
         <polygon points="0,100 100,0 100,100" />
     </svg>
-</div>
+</section>
 <style type="text/css">
   .jumbotron-welcome {
       background: linear-gradient( rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0.0) ), url(<%= randomized_background_image %>);
