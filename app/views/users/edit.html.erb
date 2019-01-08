@@ -1,6 +1,15 @@
 <div class="container">
     <div class="d-flex justify-content-center mt-3">
-        <div class="card w-50">
+        <div class="card m-2 profile-pic-edit">
+            <h5 class="card-header">Profile Picture</h5>
+            <div class="card-body">
+                <div class="gravatar_edit">
+                    <%= gravatar_for @user %>
+                    <button href="http://gravatar.com/emails" class="btn btn-primary" target="_blank">Change</button>
+                </div>
+            </div>
+        </div>
+        <div class="card m-2 w-50">
             <h5 class="card-header">Settings</h5>
                 <div class="card-body">
                     <%= form_for(@user) do |f| %>
@@ -33,14 +42,6 @@
                         <%= f.submit "Save", class: "btn btn-success btn-block" %>
                     </div>
                     <% end %>
-                    <div class="gravatar_edit">
-                        <div class="row">
-                            <div class="col">
-                                <%= gravatar_for @user %>
-                                <button href="http://gravatar.com/emails" class="btn btn-primary" target="_blank">Change</button>
-                            </div>
-                        </div>
-                    </div>
                     <div class="form-group mt-3">
                         <%= link_to "Delete", @user, method: :destroy, data: { confirm: "Are you sure you want to delete?" }, class: "btn btn-danger btn-block" %>
                     </div>
