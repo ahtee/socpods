@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
-  # def index
-  #   @users = User.all
-  # end
+  def index
+    @user = User.new
+  end
 
   def show
     @user = User.find(params[:id])
@@ -27,6 +27,7 @@ class UsersController < ApplicationController
       flash[:success] = 'Welcome to the Social Network! We\'re excited you joined us. Learn more.'
       redirect_to @user
     else
+      flash[:danger] = 'Oops! Something went wrong. Email is already registered or the form is filled incorrectly.'
       render 'welcome/index'
     end
   end
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       # Handle a successful update.
-      flash[:success] = "Profile successfully updated"
+      flash[:success] = "Profile successfully updated."
       redirect_to @user
     else
       render 'edit'
@@ -44,7 +45,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User has been successfully deleted/suspended."
+    flash[:success] = "User has been successfully deleted."
     redirect_to root_url
   end
 
