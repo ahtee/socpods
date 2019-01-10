@@ -5,18 +5,47 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav ml-auto">
-            <li><%= link_to "Help", '/', class: 'nav-link' %></li>
+            <li class="nav-item"><%= link_to "Help", '/', class: 'nav-link' %></li>
             <% if logged_in? %>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Account</a>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Account</a>
                 <ul class="dropdown-menu dropdown-menu-right">
-                    <li><%= link_to "Profile", current_user, class: 'dropdown-item' %></li>
-                    <li><%= link_to "Settings", edit_user_path(current_user), class: 'dropdown-item' %></li>
+                    <li class="nav-item"><%= link_to "Profile", current_user, class: 'dropdown-item' %></li>
+                    <li class="nav-item"><%= link_to "Settings", edit_user_path(current_user), class: 'dropdown-item' %></li>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item"><%= link_to "Logout", logout_path, method: :delete, class: 'dropdown-item' %></li>
                 </ul>
             </li>
-            <li><%= link_to "Logout", logout_path, method: :delete, class: 'nav-link' %></li>
+            <% else %>
+            <li class="nav-item"><%= link_to "GitHub", 'https://github.com/ahtee/social', class: 'nav-link' if Rails.env.development? %></li>
+            <li class="nav-item dropdown">
+                <%=link_to( image_tag("user.jpg", :height => "25", :width => "25", :id => "loginDropdown"), '#', :class => "nav-link dropdown-toggle", :data => { :toggle => "dropdown" }, :role => "button", :aria => { :haspopup => "true", :expanded => "false" } )%>
+                <ul class="dropdown-menu dropdown-menu-right dropdown-login p-3" aria-labelledby="loginDropdown">
+                    <%= form_for(:session, url: login_path) do |e| %>
+                        <div class="form-group">
+                            <%= e.label :email %>
+                            <%= e.email_field :email, class: 'form-control', placeholder: "myname@example.com" %>
+                        </div>
+                        <div class="form-group">
+                            <%= e.label :password %>
+                            <%= e.password_field :password, class: 'form-control', placeholder: "Your password" %>
+                        </div>
+                        <div class="remember-me checkbox">
+                            <div class="form-group ml-4">
+                                <label for="remember">
+                                    <input type="checkbox" class="form-check-input" name="remember" id="remember" value="0" />
+                                    <span class="pull-left">Remember me</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="text-center forgot-password mb-2">
+                            <%= link_to "Forgot Password?", 'users#forgot' %><!-- change this later, also in signup for partial -->
+                        </div>
+                        <%= e.submit "Log in", class: "btn btn-success btn-block" %>
+                    <% end %>
+                </ul>
+            </li>
             <% end %>
-            <li><%= link_to "GitHub", 'https://github.com/ahtee/social', class: 'nav-link' if Rails.env.development? %></li>
         </ul>
     </div>
 </nav>
