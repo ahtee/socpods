@@ -1,5 +1,13 @@
 <div class="container">
   <% provide(:title, "sn.com | #{@user.username}") %>
   <%= render 'shared/error_messages' %>
-  <%= render 'components/profile_intro' %>
+      <div class="row mt-4">
+          <div class="col-md-4">
+              <%= render 'components/profile_intro' %>
+          </div>
+          <div class="col-md-8">
+              <%= render 'components/profile_status'%>
+              <%= render 'components/profile_music_player'%>
+          </div>
+      </div>
 </div>
