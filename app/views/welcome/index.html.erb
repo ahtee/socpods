@@ -1,6 +1,4 @@
-<% if logged_in? %>
-
-<% else %>
+<% if !logged_in? %>
 <div class="center jumbotron jumbotron-welcome">
     <div class="container">
         <div class="row">
@@ -11,6 +9,7 @@
                 </h2>
             </div>
             <div class="col-md-6 mb-3">
+                <%= render 'shared/error_messages' %>
                 <%= render 'shared/signup_form' %>
             </div>
         </div>
