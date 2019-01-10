@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page.
       log_in user
+      user.update(is_signed_in: true)
       remember user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_back_or user
@@ -19,7 +20,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    user = User.find(current_user.id)
     log_out if logged_in?
+    user.update(is_signed_in: false)
     redirect_to root_url
   end
 

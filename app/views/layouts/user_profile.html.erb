@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SocialNetwork</title>
+    <title><%= yield :title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,7 +16,17 @@
     <%= render 'shared/navigation' %>
   </header>
   <main class="root">
-    <%= yield %>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <%= render 'components/profile_intro' %>
+            </div>
+            <div class="col-md-8">
+                <%= render 'components/profile_status'%>
+                <%= render 'components/profile_music_player'%>
+            </div>
+        </div>
+    </div>
   </main>
   <!-- <%= debug(params) if Rails.env.development? %> -->
 </html>

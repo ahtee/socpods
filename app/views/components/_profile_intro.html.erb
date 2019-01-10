@@ -1,0 +1,18 @@
+<div class="card text-center mb-4"> <!-- maybe change to current_user later -->
+    <div class="card-body">
+        <h3 class="card-title">&<%= @user.username %></h3>
+        <div class="row justify-content-center">
+            <%= gravatar_for @user %>
+        </div>
+        <div class="row">
+            <div class="col mt-2"><h5 class="card-text"><%= @user.name %></h5></div>
+        </div>
+        <div class="row">
+            <div class="col mt-2">
+                <% if @user.is_signed_in? %>
+                <%= image_tag("onlinenow.gif", :alt => "Online Now!", :width => "50%") %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

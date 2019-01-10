@@ -7,6 +7,7 @@ class User < ApplicationRecord
     validates :username, presence: true, length: { minimum: 5, maximum: 20 },
               format: { with: VALID_USERNAME_REGEX },
               uniqueness: { case_sensitive: false }
+    validates :is_signed_in, inclusion: [true, false]
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
     validates :email, presence: true, length: { maximum: 100}, 
             format: { with: VALID_EMAIL_REGEX }, 
