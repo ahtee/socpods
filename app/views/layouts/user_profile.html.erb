@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield :title %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+  </head>
+  <header>
+    <%= render 'shared/navigation' %>
+  </header>
+  <main class="root">
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <%= render 'components/profile_intro' %>
+            </div>
+            <div class="col-md-8">
+                <%= render 'components/profile_status'%>
+                <%= render 'components/profile_music_player'%>
+            </div>
+        </div>
+    </div>
+  </main>
+  <!-- <%= debug(params) if Rails.env.development? %> -->
+</html>

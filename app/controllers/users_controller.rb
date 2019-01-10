@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  # Choose user_profile layout instead of the default
   layout 'user_profile'
+
   before_action :logged_in_user, only: [:edit, :update, :show]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
