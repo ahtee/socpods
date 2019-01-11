@@ -12,13 +12,13 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password:              "foo",
                                          password_confirmation: "bar" } }
     end
-    assert_template 'users/new'
+    assert_template 'welcome/index'
   end
 
   test "valid signup information" do
     get signup_path
     assert_difference 'User.count', 1 do
-      post users_path, params: { user: { username: "zscf",
+      post users_path, params: { user: { username: "newusername",
                                          email: "user@example.com",
                                          password:              "password",
                                          password_confirmation: "password" } }
