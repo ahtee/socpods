@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by(username: params[:id])
     if @user.update_attributes(user_params)
       # Handle a successful update.
       flash[:success] = "Profile successfully updated."
@@ -70,7 +70,7 @@ class UsersController < ApplicationController
 
     # Confirms the correct user.
     def correct_user
-      @user = User.find(params[:id])
+      @user = User.find_by(username: params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
 
