@@ -40,8 +40,9 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       # Handle a successful update.
       flash[:success] = "Profile successfully updated."
-      redirect_to @user
+      render 'edit'
     else
+      flash[:warning] = "Profile settings were not updated."
       render 'edit'
     end
   end

@@ -32,10 +32,10 @@
                         </div>
                         <div class="remember-me checkbox">
                             <div class="form-group ml-4">
-                                <label for="remember">
-                                    <input type="checkbox" class="form-check-input" name="remember" id="remember" value="0" />
+                                <%= e.label :remember_me, class: "checkbox inline" do %>
+                                    <%= e.check_box :remember_me, class: "form-check-input" %>
                                     <span class="pull-left">Remember me</span>
-                                </label>
+                                <% end %>
                             </div>
                         </div>
                         <div class="text-center forgot-password mb-2">
