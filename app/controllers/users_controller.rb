@@ -7,12 +7,13 @@ class UsersController < ApplicationController
   # before_action :admin_user,     only: :destroy
 
   def index
-    @user = User.new
+    @users = User.where(activated: FILL_IN).paginate(page: params[:page])
   end
 
   def show
     @user = User.find_by(username: params[:id])
     # debugger
+    redirect_to root_url and return unless FILL_IN
   end
   
   def new
@@ -26,12 +27,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # Handle a successful save.
-      log_in @user
-      flash[:success] = 'Welcome to the Social Network! We\'re excited you joined us. Learn more.'
-      redirect_to @user
+      @user.send_activation_email # previously: log_in @user
+      flash[:info] = 'Please check your email to activate your account.'
+      redirect_to root_url # previously: redirect_to @user
     else
       flash[:danger] = 'Oops! Something went wrong. Email is already registered or the form is filled incorrectly.'
-      render 'welcome/index'
+      redirect_to root_url
     end
   end
 

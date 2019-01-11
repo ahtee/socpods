@@ -1,0 +1,8 @@
+<%= @greeting %> <%= @user.username %>,
+
+Thank you for signing up! SocialNetwork.com provides lots of amazing features to get you connected with people of similar interests.
+To learn more about SocialNetwork.com, please follow this link below.
+
+Click on the link below to activate your account:
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
