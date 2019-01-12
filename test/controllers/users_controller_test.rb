@@ -35,5 +35,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
         assert_not @other_user.admin?
       end
 
+      
+
 end
 
