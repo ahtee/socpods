@@ -1,7 +1,9 @@
 <% if logged_in? %>
-    <div class="card mb-2 mt-4">
-        <section class="micropost_form">
-            <%= render 'shared/new_micropost' %>
-        </section>
-    </div>
+    <% if @user == current_user %>
+        <div class="card mb-2 mt-4">
+            <section class="micropost_form">
+                <%= render 'shared/new_micropost' %>
+            </section>
+        </div>
+    <% end %>
 <% end %>
