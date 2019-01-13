@@ -4,11 +4,11 @@ class MicropostsController < ApplicationController
     def create
         @micropost = current_user.microposts.build(micropost_params)
         if @micropost.save
-            flash[:success] = "Micropost created!"
-            redirect_to current_user
+            # flash[:success] = "Micropost created!"
+            redirect_back(fallback_location: current_user)
         else
-            flash[:alert] = "Post not created"
-            redirect_to current_user
+            # flash[:alert] = "Post not created"
+            redirect_back(fallback_location: root_path)
         end
     end
 

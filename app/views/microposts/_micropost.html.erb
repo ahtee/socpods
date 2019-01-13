@@ -1,12 +1,19 @@
 <li id="micropost-<%= micropost.id %>" class="list-group-item">
-    <div class="">
-      <%= link_to gravatar_for(micropost.user, size: 30), micropost.user %>
-      <span class="user font-weight-light"><%= link_to micropost.user.name, micropost.user %></span>
-    <div>
-    <div class="">
-      <div class="row">
-        <span class="content ml-5 mt-2"><%= micropost.content %></span> 
-        <span class="text-muted"><%= time_ago_in_words(micropost.created_at) %> ago</span>
+    <div class="row">
+      <div class="col-sm-2">
+        <%= link_to gravatar_for(micropost.user, size: 30), micropost.user %>
+      </div>
+      <div class="col">
+        <div class="row">
+          <span class="user"><%= link_to micropost.user.username, micropost.user %></span>
+          <span class="user font-weight-light">&nbsp;<%= link_to micropost.user.name, micropost.user %></span>
+        </div>
+        <div class="row">
+          <span class="content"><%= micropost.content %></span> 
+        </div>
+        <div class="row">
+          <small class="text-muted text-right"><%= time_ago_in_words(micropost.created_at) %> ago</small>
+        </div>
       </div>
     </div> 
 </li>

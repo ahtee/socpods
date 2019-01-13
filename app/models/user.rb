@@ -45,6 +45,10 @@ class User < ApplicationRecord
         update_attribute(:remember_digest, nil)
     end
 
+    def feed
+        microposts
+      end
+
     class << self
         # Returns the hash digest of the given string.
         def digest(string)

@@ -23,6 +23,7 @@ class SessionsController < ApplicationController
     user = User.find(current_user.id)
     log_out if logged_in?
     user.update(is_signed_in: false)
+    flash[:success] = "Logged out. Come back soon and see more features!"
     redirect_to root_url
   end
 

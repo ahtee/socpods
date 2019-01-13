@@ -1,6 +1,9 @@
 class WelcomeController < ApplicationController
   def index
-    @micropost = current_user.microposts.build if logged_in?
+    if logged_in?
+      @micropost  = current_user.microposts.build
+      @feed_items = current_user.feed.paginate(page: params[:page])
+    end
     @user = User.new
   end
 
@@ -17,15 +20,8 @@ class WelcomeController < ApplicationController
     end
   end
 
-  def createPost 
-    @micropost = current_user.microposts.build(micropost_params)
-    if @micropost.save
-        flash[:success] = "Micropost created!"
-        render 'users/show'
-    else
-        flash[:alert] = "Post not created"
-        render 'users/show'
-    end
+  def feed
+    Micropost.where("user_id = ?", id)
   end
 
   private 
