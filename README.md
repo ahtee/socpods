@@ -50,3 +50,12 @@ Database should be created locally with the rails setup. If you need to, run `ra
 
 Sometimes rails will try to run tests off the previous process of spring. Use the command `spring stop` to stop the current process and run `rails server|test` again.
 
+## Issues with local environment
+
+If you come across issues with running rails in your local env try:
+- `brew install openssl` && `export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/`
+- `mysql.server restart`
+- `rails db:migrate:reset`
+
+Note: resetting the database will drop tables and delete users and re-seed the database with sample users. only do this on non-prod.
+
