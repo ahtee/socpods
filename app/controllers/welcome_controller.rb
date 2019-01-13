@@ -16,4 +16,21 @@ class WelcomeController < ApplicationController
       render 'welcome/index'
     end
   end
+
+  def createPost 
+    @micropost = current_user.microposts.build(micropost_params)
+    if @micropost.save
+        flash[:success] = "Micropost created!"
+        render 'users/show'
+    else
+        flash[:alert] = "Post not created"
+        render 'users/show'
+    end
+  end
+
+  private 
+    
+    def micropost_params
+      params.require(:micropost).permit(:content)
+    end
 end

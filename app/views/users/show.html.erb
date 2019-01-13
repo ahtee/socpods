@@ -1,5 +1,5 @@
 <div class="container">
-  <% provide(:title, "sn.com | #{@user.username}") %>
+  <% provide(:title, " | #{@user.username}") %>
   <%= render 'shared/error_messages' %>
       <div class="row mt-4">
           <div class="col-md-3">
@@ -9,6 +9,7 @@
               <%= render 'components/profile_status'%>
               <%= render 'components/profile_music_player'%>
               <%= render 'components/profile_microposts'%>
+              <%= render 'components/profile_show_microposts'%>
           </div>
       </div>
 </div>
