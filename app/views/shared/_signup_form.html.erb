@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body login-max-width">
-    <%= form_for(@user, { class: "needs-validation" }) do |e|%>
+    <%= form_for(@user) do |e|%>
     <div class="form-group input-group-lg">
         <label for="username">Username:</label>
         <%= e.text_field :username, class: "form-control", placeholder: 'mynickname', :required => true %>

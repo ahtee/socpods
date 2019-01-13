@@ -38,10 +38,11 @@
                                 </label>
                             </div>
                         </div>
+                        <%= e.submit "Log in", class: "btn btn-success btn-block" %>
+                        <div class="dropdown-divider"></div>
                         <div class="text-center forgot-password mb-2">
                             <%= link_to "Forgot Password?", 'users#forgot' %><!-- change this later, also in signup for partial -->
                         </div>
-                        <%= e.submit "Log in", class: "btn btn-success btn-block" %>
                     <% end %>
                 </ul>
             </li>
