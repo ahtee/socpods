@@ -8,7 +8,8 @@
             <li class="nav-item"><%= link_to "Help", '/', class: 'nav-link' %></li>
             <% if logged_in? %>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Account</a>
+                <!--<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Account</a>-->
+                <%= link_to gravatar_for(current_user, size: 25), '#', class: "nav-link dropdown-toggle", id: "loginDropdown", :data => { :toggle => "dropdown" }, :role => "button", :aria => { :haspopup => "true", :expanded => "false" } %>
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li class="nav-item"><%= link_to "Profile", current_user, class: 'dropdown-item' %></li>
                     <li class="nav-item"><%= link_to "Settings", edit_user_path(current_user), class: 'dropdown-item' %></li>

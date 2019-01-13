@@ -53,17 +53,6 @@ class UsersController < ApplicationController
     redirect_to root_url
   end
 
-  def createPost 
-    @micropost = current_user.microposts.build(micropost_params)
-    if @micropost.save
-        flash[:success] = "Micropost created!"
-        render 'users/show'
-    else
-        flash[:alert] = "Post not created"
-        render 'users/show'
-    end
-  end
-
   private
 
     def user_params
@@ -81,9 +70,5 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
-
-    def micropost_params
-      params.require(:micropost).permit(:content)
-  end
 
 end
