@@ -7,13 +7,21 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @user = User.new
+    @user = current_user unless !logged_in?
   end
 
   def show
     @user = User.find_by(username: params[:id])
     @micropost = current_user.microposts.build if logged_in?
-    @microposts = @user.microposts.paginate(page: params[:page])
+    # @micropost = current_user.microposts.build(micropost_params)
+    if @micropost.save
+        render :show
+    end
+    @microposts = @user.microposts.paginate(page: params[:page], per_page: 5)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def new
@@ -51,10 +59,6 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "User has been successfully deleted."
     redirect_to root_url
-  end
-
-  def feed
-    Micropost.where("user_id = ?", id)
   end
 
   private

@@ -1,12 +1,12 @@
 <li id="micropost-<%= micropost.id %>" class="list-group-item">
     <div class="row">
       <div class="col-sm-2">
-        <%= link_to gravatar_for(micropost.user, size: 30), micropost.user %>
+        <%= link_to gravatar_for(micropost.user, size: 50), micropost.user, class: "mt-2" %>
       </div>
       <div class="col">
         <div class="row">
           <span class="user"><%= link_to micropost.user.username, micropost.user %></span>
-          <span class="user font-weight-light">&nbsp;<%= link_to micropost.user.name, micropost.user %></span>
+          <span class="user font-weight-light">&nbsp;<%= micropost.user.name %></span>
         </div>
         <div class="row">
           <span class="content"><%= micropost.content %></span> 

@@ -12,6 +12,15 @@ class MicropostsController < ApplicationController
         end
     end
 
+    def update
+        @micropost = current_user.microposts.build(micropost_params)
+        if @micropost.save
+            render :show
+        else
+            redirect_to root_url
+        end
+      end
+
     def destroy
     end
 
