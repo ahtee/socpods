@@ -227,7 +227,7 @@ DEPENDENCIES
   bcrypt (= 3.1.12)
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.2.1)
-  bootstrap-will_paginate (= 1.0.0)
+  bootstrap-will_paginate (~> 1.0)
   byebug
   capybara (>= 2.15)
   chromedriver-helper
@@ -254,4 +254,4 @@ RUBY VERSION
    ruby 2.3.7p456
 
 BUNDLED WITH
-   1.17.2
+   2.0.1

@@ -2,9 +2,14 @@ class WelcomeController < ApplicationController
   def index
     if logged_in?
       @micropost  = current_user.microposts.build
-      @feed_items = current_user.feed.paginate(page: params[:page])
+      @feed_items = current_user.feed.paginate(:page => params[:page], :per_page => 10)
+      respond_modal_with @micropost
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
-    @user = User.new
+    @user = User.new if !logged_in?
   end
 
   def create
@@ -18,10 +23,6 @@ class WelcomeController < ApplicationController
       flash[:danger] = 'Oops! Something went wrong. Please ensure the signup form is correct and try again.'
       render 'welcome/index'
     end
-  end
-
-  def feed
-    Micropost.where("user_id = ?", id)
   end
 
   private 

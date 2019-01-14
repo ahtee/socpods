@@ -13,20 +13,21 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(username: params[:id])
     @micropost = current_user.microposts.build if logged_in?
-    # @micropost = current_user.microposts.build(micropost_params)
+    
     if @micropost.save
         render :show
     end
+    
     @microposts = @user.microposts.paginate(page: params[:page], per_page: 5)
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
   end
   
-  def new
-    @user = User.new
-  end
+  # def new
+  #   @user = User.new
+  # end
 
   def edit
   end

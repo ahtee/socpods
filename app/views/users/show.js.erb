@@ -1,0 +1,6 @@
+$('#posts').append('<%= j render(@microposts) %>');
+<% if @products.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@microposts) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>
