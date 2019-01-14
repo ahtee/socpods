@@ -1,12 +1,23 @@
 class User < ApplicationRecord
     has_many :microposts, dependent: :destroy
+    has_many :active_followings, class_name:  "Following",
+                                  foreign_key: "follower_id",
+                                  dependent:   :destroy
+
+    has_many :passive_followings, class_name:  "Following",
+                                  foreign_key: "followed_id",
+                                  dependent:   :destroy
+    has_many :following, through: :active_followings, source: :followed
+    has_many :followers, through: :passive_followings, source: :follower
+    
     attr_accessor :remember_token
+    
     before_save { email.downcase! } 
     before_save { username.downcase! }
     #validates :name, length: { maximum: 50 } # removed this in initial signup form
     VALID_USERNAME_REGEX = /\A[a-z0-9\-_]+\z/i
     validates :username, presence: true, length: { minimum: 4, maximum: 20 },
-              format: { with: VALID_USERNAME_REGEX },
+              format: { with: VALID_USERNAME_REGEX }, # uncomment this when not testing
               uniqueness: { case_sensitive: false }
     validates :is_signed_in, inclusion: [true, false]
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -47,7 +58,20 @@ class User < ApplicationRecord
 
     def feed
         microposts
-      end
+    end
+
+    def follow(other_user)
+        following << other_user
+    end
+
+    def unfollow(other_user)
+        following.delete(other_user)
+    end
+
+    # Returns true if the current user is following the other user.
+    def following?(other_user)
+        following.include?(other_user)
+    end
 
     class << self
         # Returns the hash digest of the given string.

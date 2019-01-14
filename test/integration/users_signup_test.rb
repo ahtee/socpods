@@ -5,7 +5,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
   test "invalid signup information" do
-    get signup_path
+    get root_url
     assert_no_difference 'User.count' do
       post users_path, params: { user: { username: "",
                                          email: "user@invalid",
@@ -16,7 +16,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   end
 
   test "valid signup information" do
-    get signup_path
+    get root_url
     assert_difference 'User.count', 1 do
       post users_path, params: { user: { username: "newusername",
                                          email: "user@example.com",
