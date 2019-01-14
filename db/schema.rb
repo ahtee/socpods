@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_14_142649) do
+ActiveRecord::Schema.define(version: 2019_01_14_224348) do
 
   create_table "followings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "follower_id"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2019_01_14_142649) do
     t.boolean "activated", default: false
     t.datetime "activated_at"
     t.boolean "is_signed_in", default: false
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end

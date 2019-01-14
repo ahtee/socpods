@@ -1,9 +1,9 @@
 <% if !logged_in? %>
 <div class="center jumbotron jumbotron-welcome">
-    <div class="container">
-        <div class="row">
+    <div class="d-flex align-items-center justify-content-center container">
+        
             <div class="col-md-6 mb-3">
-                <h1 class="display-4 text-white">Welcome to the SocialNetwork</h1>
+                <h1 class="display-4 text-white">SocialNetwork</h1>
                 <h2 class="lead text-white">
                     Sign up and follow friends, artists, bands, interest groups, and more!
                 </h2>
@@ -12,7 +12,7 @@
                 <%= render 'shared/error_messages' %>
                 <%= render 'shared/signup_form' %>
             </div>
-        </div>
+        
     </div>
 </div>
 <section class="d-flex flex-row align-content-center" style="height: 600px;">
