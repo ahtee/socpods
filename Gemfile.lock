@@ -88,8 +88,8 @@ GEM
     faker (1.9.1)
       i18n (>= 0.7)
     ffi (1.9.25)
-    font-awesome-sass (5.6.1)
-      sassc (>= 1.11)
+    font-awesome-rails (4.7.0.4)
+      railties (>= 3.2, < 6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (1.5.2)
@@ -122,7 +122,7 @@ GEM
     multi_json (1.13.1)
     mysql2 (0.5.2)
     nio4r (2.3.1)
-    nokogiri (1.9.1)
+    nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
     popper_js (1.14.5)
     public_suffix (3.0.3)
@@ -235,7 +235,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   faker (~> 1.9, >= 1.9.1)
-  font-awesome-sass (~> 5.6.1)
+  font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
@@ -257,4 +257,4 @@ RUBY VERSION
    ruby 2.3.7p456
 
 BUNDLED WITH
-   2.0.1
+   1.17.2
