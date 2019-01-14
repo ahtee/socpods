@@ -1,5 +1,4 @@
 <li class="list-group-item micropost"> <!--  id="micropost-<%= micropost.id %>" -->
-    <%= link_to "View Post", '#', :data => { :modal =>  "true" } do %>
     <div class="row">
       <div class="col-sm-2">
           <%= link_to gravatar_for(micropost.user, size: 50), micropost.user, class: "mt-2" %>
@@ -17,6 +16,5 @@
           </div>
       </div>
   </div>
-  <% end %> 
-  <%= render 'micropost/micropost_modal'%>
 </li>
+<%= render 'microposts/micropost_modal'%>
