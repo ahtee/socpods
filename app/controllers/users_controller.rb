@@ -26,9 +26,10 @@ class UsersController < ApplicationController
     end
   end
   
-  # def new
-  #   @user = User.new
-  # end
+  # New user form initially
+  def new
+    @user = User.new
+  end
 
   def edit
   end
