@@ -6,3 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
  
+
+(1..100).each do |i|
+    Micropost.create!(user_id: "1", content: %{
+        #{i}. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In feugiat purus
+    })
+  end
