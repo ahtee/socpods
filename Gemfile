@@ -7,6 +7,9 @@ ruby '2.3.7'
 gem 'rails', '~> 5.2.2'
 # Use bcrypt for database security # Use ActiveModel has_secure_password
 gem 'bcrypt', '3.1.12'
+# Faker gem for dummy content
+# if fails, run gem install nokogiri -- --use-system-libraries
+gem 'faker', '~> 1.9', '>= 1.9.1'
 # Pagination
 gem 'will_paginate', '3.1.6'
 gem 'bootstrap-will_paginate', '~> 1.0'
