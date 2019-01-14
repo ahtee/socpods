@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       end
     end
     
-    @profile_posts = @user.microposts.paginate(page: params[:page], per_page: 5)
+    @profile_posts = @user.microposts.paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
       format.js

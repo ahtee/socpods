@@ -1,12 +1,12 @@
 <% @user ||= current_user %>
 <div class="border-top border-bottom pt-2 pb-3">
     <div class="d-flex justify-content-center mt-2">
-        <div class="posts mr-3 ml-3">
+        <div class="posts">
             <a href="<%= microposts_path(@user) %>">
                 <strong><%= @user.microposts.count %></strong>&nbsp;Posts
             </a>
         </div>
-        <div class="following mr-3">
+        <div class="following">
             <a href="<%= following_user_path(@user) %>">
             <strong><%= @user.following.count %></strong>&nbsp;Following
             </a>
