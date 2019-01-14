@@ -72,11 +72,18 @@
 </style>
 <% else %>
 <div class="container">
-    <section class="micropost_form mt-3">
-        <%= render 'shared/new_micropost' %>
-    </section>
-    <section class="micropost_feed mb-5">
-        <%= render 'shared/feed'%>
-    </section>
+    <div class="row mt-3">
+        <div class="col-3 position-sticky">
+            <%= render 'components/profile_intro'%>
+        </div>
+        <div class="col-9">
+            <section class="micropost_form">
+                <%= render 'shared/new_micropost' %>
+            </section>
+            <section class="micropost_feed mb-2">
+                <%= render 'shared/feed'%>
+            </section>
+        </div>
+    </div>
 </div>
 <% end %>
