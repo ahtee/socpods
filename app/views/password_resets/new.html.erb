@@ -1,0 +1,19 @@
+<% provide(:title, "Forgot password") %>
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Send password reset link</h4>
+                        <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+                        <%= f.label :email %>
+                        <%= f.email_field :email, class: 'form-control' %>
+
+                        <%= f.submit "Send reset link", class: "btn btn-primary mt-2" %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

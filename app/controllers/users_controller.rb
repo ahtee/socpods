@@ -19,18 +19,22 @@ class UsersController < ApplicationController
       end
     end
     
-    @microposts = @user.microposts.paginate(page: params[:page], per_page: 5)
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
+    @profile_posts = @user.microposts.paginate(page: params[:page], per_page: 10)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
-  # def new
-  #   @user = User.new
-  # end
+  # New user form initially
+  def new
+    @user = User.new
+  end
 
   def edit
+  end
+
+  def friends
   end
 
   def create
@@ -61,6 +65,12 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "User has been successfully deleted."
     redirect_to root_url
+  end
+
+  def add_friend
+  end
+    
+  def remove_friend  
   end
 
   private

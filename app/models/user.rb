@@ -10,7 +10,7 @@ class User < ApplicationRecord
     has_many :following, through: :active_followings, source: :followed
     has_many :followers, through: :passive_followings, source: :follower
     
-    attr_accessor :remember_token
+    attr_accessor :remember_token, :reset_token
     
     before_save { email.downcase! } 
     before_save { username.downcase! }
@@ -50,6 +50,18 @@ class User < ApplicationRecord
         return false if remember_digest.nil?
         BCrypt::Password.new(remember_digest).is_password?(remember_token)
     end
+
+    def create_reset_digest
+        self.reset_token = User.new_token
+        update_attribute(:reset_digest,  User.digest(reset_token))
+        update_attribute(:reset_sent_at, Time.zone.now)
+    end
+
+    # Sends password reset email.
+    def send_password_reset_email
+        # UserMailer.password_reset(self).deliver_now
+    end
+
 
     # Forgets a user.
     def forget
