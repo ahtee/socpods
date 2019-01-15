@@ -1,0 +1,27 @@
+# ./docker-compose.yml
+
+version: '2.2'
+services:
+  app:
+    build: .
+    command: bundle exec rails server
+    volumes:
+      - .:/home/app
+      - bundle:/bundle
+    environment:
+      RAILS_ENV: development
+    ports:
+      - "3000:3000"
+  mysql:
+    image: mysql:5.7.18
+    environment:
+      - MYSQL_ROOT_PASSWORD=''
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+volumes:
+  bundle:
+    driver: local
+  db-data:
+    driver: local
