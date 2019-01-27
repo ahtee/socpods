@@ -16,5 +16,19 @@
                 <strong><%= @user.followers.count %></strong>&nbsp;Followers
             </a>
         </div>
+        <%
+=begin%>
+ <div class="friends">
+            <a href="<%= friends_path(@user) %>">
+                <strong><%= @user.friends.count %></strong>&nbsp;Friends
+            </a>
+        </div> 
+<%
+=end%>
+        <div class="comments">
+            <a href="<%= comments_path(@user) %>">
+                <strong><%= @user.comments.count %></strong>&nbsp;Comments
+            </a>
+        </div>
     </div>
 </div>
