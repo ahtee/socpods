@@ -1,9 +1,9 @@
 <% @user ||= current_user %>
 <div class="border-top border-bottom pt-2 pb-3">
     <div class="d-flex justify-content-center mt-2">
-        <div class="posts">
-            <a href="<%= microposts_path(@user) %>">
-                <strong><%= @user.microposts.count %></strong>&nbsp;Posts
+        <div class="comments">
+            <a href="<%= comments_path(@user) %>">
+                <strong><%= @user.comments.count %></strong>&nbsp;Comments
             </a>
         </div>
         <div class="following">
@@ -25,10 +25,5 @@
         </div> 
 <%
 =end%>
-        <div class="comments">
-            <a href="<%= comments_path(@user) %>">
-                <strong><%= @user.comments.count %></strong>&nbsp;Comments
-            </a>
-        </div>
     </div>
 </div>

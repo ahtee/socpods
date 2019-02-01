@@ -70,7 +70,7 @@ class User < ApplicationRecord
     end
 
     def feed
-        microposts
+        comments
     end
 
     def follow(other_user)

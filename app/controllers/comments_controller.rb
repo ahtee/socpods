@@ -5,9 +5,9 @@ class CommentsController < ApplicationController
         @comment = current_user.comments.build(comment_params)
         if @comment.save
             # flash[:success] = "Micropost created!"
-            redirect_back(fallback_location: current_user)
+            redirect_back(fallback_location: @user)
         else
-            # flash[:alert] = "Post not created"
+            flash[:alert] = "Sorry your Comment was not successfully posted."
             redirect_back(fallback_location: root_path)
         end
     end
@@ -15,7 +15,10 @@ class CommentsController < ApplicationController
     def update
         @comment = current_user.comments.build(comment_params)
         if @comment.save
-            render :show
+            respond_to do |format|
+                format.html
+                format.js
+              end
         else
             redirect_to root_url
         end

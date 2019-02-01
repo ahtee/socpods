@@ -12,16 +12,15 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:id])
     if logged_in?
       @comment = current_user.comments.build
-      if @comment.save 
-        render :show
+      if @comment.save
+        respond_to do |format|
+          format.html
+          format.js
+        end
       end
     end
 
     @profile_comments = @user.comments.paginate(page: params[:page], per_page: 10)
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
   
   # New user form initially
