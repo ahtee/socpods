@@ -1,8 +1,7 @@
-<li id="comment-<%= comment.id %>">
-  <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
-  <span class="user"><%= link_to comment.user.name, comment.user %></span>
-  <span class="content"><%= comment.content %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(comment.created_at) %> ago.
-  </span>
+<li class="list-group-item" id="comment-<%= comment.id %>">
+  <p class="card-title"><%= link_to gravatar_for(comment.user, size: 50), comment.user %> <%= link_to comment.user.name, comment.user %></p>
+  <p class="card-text"><%= comment.content %></p>
+  <small class="text-muted text-right">
+    <span class="timestamp"><%= time_ago_in_words(comment.created_at) %> ago</span>
+  </small>
 </li>

@@ -1,11 +1,12 @@
 <% if @user.comments.any? %>
   <div class="card mt-2">
-      <h5>Comments (<%= @user.comments.count %>)</h5>
-      <div class="list-group list-group-flush" id="microposts">
+    <div class="card-body">
+      <div class="list-group list-group-flush" id="comments">
         <%= render @profile_comments %>
       </div>
       <div id="infinite-scrolling">
         <%= will_paginate @profile_comments, class: "pagination" %>
       <div>
+    </div>
   <div>
 <% end %>

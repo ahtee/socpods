@@ -20,6 +20,9 @@ class UsersController < ApplicationController
       end
     end
 
+    @contact_methods = {
+      "Send Message" => "#"
+    } 
     @profile_comments = @user.comments.paginate(page: params[:page], per_page: 10)
   end
   
