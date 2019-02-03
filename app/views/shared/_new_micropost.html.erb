@@ -1,6 +1,0 @@
-<%= form_for(@micropost, remote: true) do |f| %>
-    <div class="form-group m-3">    
-        <%= f.text_area :content, placeholder: "What's new with you?", class: "form-control mb-2" %>
-        <%= f.submit "Post", class: "btn btn-info" %>
-    </div>
-<% end %>

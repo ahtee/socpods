@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  # Choose user_profile layout instead of the default
-  # layout 'user_profile'
 
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
@@ -13,17 +11,19 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(username: params[:id])
     if logged_in?
-      @micropost = current_user.microposts.build
-      if @micropost.save 
-        render :show
+      @comment = current_user.comments.build
+      if @comment.save
+        respond_to do |format|
+          format.html
+          format.js
+        end
       end
     end
-    
-    @profile_posts = @user.microposts.paginate(page: params[:page], per_page: 10)
-    respond_to do |format|
-      format.html
-      format.js
-    end
+
+    @contact_methods = {
+      "Send Message" => "#"
+    } 
+    @profile_comments = @user.comments.paginate(page: params[:page], per_page: 10)
   end
   
   # New user form initially
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     if @user.save
       # Handle a successful save.
       log_in @user
-      flash[:success] = 'Welcome to the Social Network! We\'re excited you joined us. Learn more.'
+      flash[:success] = 'Welcome to the Social Network!'
       redirect_to @user
     else
       flash[:danger] = 'Oops! Something went wrong. Email is already registered or the form is filled incorrectly.'
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:id])
     if @user.update_attributes(user_params)
       # Handle a successful update.
-      flash[:success] = "Profile successfully updated."
+      flash[:success] = "Your profile successfully updated."
       redirect_to @user
     else
       render 'edit'
@@ -63,7 +63,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User has been successfully deleted."
+    flash[:success] = "User has been deleted."
     redirect_to root_url
   end
 

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_many :microposts, dependent: :destroy
+    has_many :comments, dependent: :destroy
     has_many :active_followings, class_name:  "Following",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -69,7 +70,7 @@ class User < ApplicationRecord
     end
 
     def feed
-        microposts
+        comments
     end
 
     def follow(other_user)

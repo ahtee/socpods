@@ -1,6 +1,6 @@
-$('#posts').append('<%= j render(@microposts) %>');
-<% if @products.next_page %>
-  $('.pagination').replaceWith('<%= j will_paginate(@microposts) %>');
+$('#comment-secion').append('<%= j render(@comments) %>');
+<% if @comments.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@comments) %>');
 <% else %>
   $('.pagination').remove();
 <% end %>

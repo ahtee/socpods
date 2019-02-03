@@ -1,0 +1,6 @@
+<%= form_for(@comment, remote: true) do |f| %>
+    <div class="form-group m-3">    
+        <%= f.text_area :content, class: "form-control mb-2", placeholder: "Add a new comment" %>
+        <%= f.submit "Post", class: "btn btn-warning" %>
+    </div>
+<% end %>
