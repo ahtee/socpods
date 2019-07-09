@@ -70,7 +70,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Installs the Bootstrap 4 CSS framework via rubygems.org
-gem 'bootstrap', '~> 4.2.1'
+gem 'bootstrap', '~> 4.3.1'
 # JQuery required for Bootstrap 4
 gem 'jquery-rails'
 gem 'rails-controller-testing'
