@@ -16,7 +16,7 @@ gem 'bootstrap-will_paginate', '~> 1.0'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Sass font awesome gem
